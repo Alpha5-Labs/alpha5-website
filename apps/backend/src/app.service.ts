@@ -9,10 +9,17 @@ export class AppService {
     };
   }
 
-  getHomeMessage(): { message: string; company: string } {
+  getHomeMessage(): { 
+    message: string; 
+    company: string; 
+    tagline: string;
+    year: number;
+  } {
     return {
-      message: 'Something Amazing is Coming Soon',
+      message: 'Something Amazing is Coming Soon...',
       company: 'Alpha5 Labs',
+      tagline: '🚀 Turning bold ideas into everyday solutions.',
+      year: new Date().getFullYear(),
     };
   }
 }

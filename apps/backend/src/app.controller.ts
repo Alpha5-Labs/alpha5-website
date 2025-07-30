@@ -11,7 +11,12 @@ export class AppController {
   }
 
   @Get('home-message')
-  getHomeMessage(): { message: string; company: string } {
+  getHomeMessage(): { 
+    message: string; 
+    company: string; 
+    tagline: string;
+    year: number;
+  } {
     return this.appService.getHomeMessage();
   }
 }

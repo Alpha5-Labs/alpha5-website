@@ -6,6 +6,8 @@ import Image from 'next/image';
 interface HomeData {
   message: string;
   company: string;
+  tagline: string;
+  year: number;
 }
 
 export default function Home() {
@@ -21,8 +23,10 @@ export default function Home() {
       } catch (error) {
         console.error('Failed to fetch home data:', error);
         setHomeData({
-          message: 'Something Amazing is Coming Soon',
-          company: 'Alpha5 Labs',
+          message: 'Loading content...',
+          company: 'Loading...',
+          tagline: 'Loading tagline...',
+          year: new Date().getFullYear(),
         });
       } finally {
         setLoading(false);
@@ -59,7 +63,7 @@ export default function Home() {
             </div>
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-black">
-                {homeData?.company || 'Alpha5 Labs'}
+                {homeData?.company || 'Loading...'}
               </h1>
               <div className="w-24 h-px bg-black mx-auto"></div>
             </div>
@@ -68,10 +72,10 @@ export default function Home() {
           {/* Message Section */}
           <div className="space-y-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-800 leading-relaxed">
-              {homeData?.message || 'Something Amazing is Coming Soon'}
+              {homeData?.message || 'Loading content...'}
             </h2>
                          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-               🚀 Turning bold ideas into everyday solutions.
+               {homeData?.tagline || 'Loading tagline...'}
              </p>
           </div>
 
@@ -90,6 +94,15 @@ export default function Home() {
           <div className="flex flex-col items-center space-y-4">
             {/* Social Links */}
             <div className="flex items-center space-x-6">
+              <a
+                href="mailto:contact@alpha5labs.com"
+                className="text-gray-600 hover:text-black transition-colors duration-200"
+                aria-label="Send us an email"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </a>
               <a
                 href="https://twitter.com/Alpha5Labs"
                 target="_blank"
@@ -116,7 +129,7 @@ export default function Home() {
             
                          {/* Footer Text */}
              <div className="text-center">
-               <p className="text-xs text-gray-400">© 2025 Alpha5 Labs</p>
+                               <p className="text-xs text-gray-400">© {homeData?.year || new Date().getFullYear()} Alpha5 Labs</p>
              </div>
           </div>
         </div>
