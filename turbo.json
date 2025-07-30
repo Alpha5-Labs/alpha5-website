@@ -11,8 +11,10 @@
       "persistent": true
     },
     "lint": {},
+    "format": {},
+    "format:check": {},
     "clean": {
       "cache": false
     }
   }
-} 
+}

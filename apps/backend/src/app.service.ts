@@ -9,9 +9,9 @@ export class AppService {
     };
   }
 
-  getHomeMessage(): { 
-    message: string; 
-    company: string; 
+  getHomeMessage(): {
+    message: string;
+    company: string;
     tagline: string;
     year: number;
   } {

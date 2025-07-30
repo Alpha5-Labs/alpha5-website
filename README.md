@@ -10,6 +10,7 @@ alpha5-website/
 │   ├── frontend/          # Next.js frontend application
 │   └── backend/           # NestJS backend application
 ├── packages/              # Shared packages (future use)
+├── .husky/                # Git hooks configuration
 ├── turbo.json            # Turborepo configuration
 └── package.json          # Root package.json
 ```
@@ -19,6 +20,7 @@ alpha5-website/
 - **Frontend**: Next.js 14 with TypeScript, Tailwind CSS, App Router
 - **Backend**: NestJS with TypeScript
 - **Monorepo**: Turborepo for build orchestration
+- **Code Quality**: ESLint, Prettier, Husky, lint-staged
 - **Package Manager**: npm
 
 ## 📋 Prerequisites
@@ -49,6 +51,7 @@ npm run dev
 ```
 
 This will start:
+
 - Frontend: http://localhost:3000
 - Backend: http://localhost:3001
 
@@ -81,13 +84,15 @@ Example responses:
 // GET /home-message
 {
   "message": "Something Amazing is Coming Soon",
-  "company": "Alpha5 Labs"
+  "company": "Alpha5 Labs",
+  "tagline": "🚀 Turning bold ideas into everyday solutions.",
+  "year": 2025
 }
 ```
 
 ## 🎨 Frontend Features
 
-- Beautiful coming soon page with gradient background
+- Beautiful minimal black & white design with Alpha5 logo
 - Responsive design for mobile and desktop
 - Loading states and error handling
 - Fetches content dynamically from backend API
@@ -100,7 +105,34 @@ From the root directory:
 - `npm run dev` - Start both apps in development mode
 - `npm run build` - Build all apps for production
 - `npm run lint` - Run linting across all apps
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting
 - `npm run clean` - Clean build artifacts
+
+## 🔧 Code Quality & Git Hooks
+
+### Automatic Formatting
+
+This project uses **Husky** and **lint-staged** for automatic code formatting on commit:
+
+- **Pre-commit hooks**: Automatically format and lint staged files
+- **Prettier**: Consistent code formatting across the entire codebase
+- **ESLint**: Code quality and style enforcement
+
+### Manual Formatting
+
+```bash
+# Format all files
+npm run format
+
+# Check formatting without making changes
+npm run format:check
+```
+
+### Git Hooks
+
+- **Pre-commit**: Runs Prettier and ESLint on staged files
+- **Automatic setup**: Hooks are installed automatically with `npm install`
 
 ## 🔧 Configuration
 
@@ -109,11 +141,13 @@ From the root directory:
 Create `.env.local` files in the respective app directories if needed:
 
 **Frontend** (`apps/frontend/.env.local`):
+
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
 
 **Backend** (`apps/backend/.env`):
+
 ```env
 PORT=3001
 ```
@@ -151,4 +185,4 @@ For questions or support, please contact the Alpha5 Labs team.
 
 ---
 
-**Alpha5 Labs** - Building the future of innovation. 
+**Alpha5 Labs** - Building the future of innovation.

@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+dist/
+build/
+out/
+
+# Logs
+*.log
+
+# Environment variables
+.env*
+
+# Cache directories
+.turbo/
+.cache/
+
+# Generated files
+coverage/
+*.tsbuildinfo
+
+# Package files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml 
