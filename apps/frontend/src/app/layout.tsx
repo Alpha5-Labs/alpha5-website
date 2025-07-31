@@ -116,14 +116,37 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/Alpha5-logo.png" sizes="any" />
-        <link rel="apple-touch-icon" href="/Alpha5-logo.png" />
+        {/* Favicon Links */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        {/* Theme and Mobile */}
         <meta name="theme-color" content="#000000" />
+        <meta name="msapplication-TileColor" content="#000000" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
         <meta name="format-detection" content="telephone=no" />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
