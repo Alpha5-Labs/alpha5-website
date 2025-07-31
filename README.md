@@ -43,7 +43,32 @@ cd apps/frontend && npm install
 cd ../backend && npm install
 ```
 
-### 2. Development Mode
+### 2. Environment Configuration
+
+#### Frontend Environment Variables
+
+```bash
+# Create frontend environment file
+cd apps/frontend
+cp env.example .env.local
+
+# Edit .env.local with your values:
+# NEXT_PUBLIC_API_URL=http://localhost:3001
+```
+
+#### Backend Environment Variables
+
+```bash
+# Create backend environment file
+cd apps/backend
+cp env.example .env
+
+# Edit .env with your values:
+# PORT=3001
+# CORS_ORIGINS=http://localhost:3000
+```
+
+### 3. Development Mode
 
 ```bash
 # Run both frontend and backend in development mode
@@ -55,7 +80,7 @@ This will start:
 - Frontend: http://localhost:3000
 - Backend: http://localhost:3001
 
-### 3. Individual App Development
+### 4. Individual App Development
 
 ```bash
 # Run only frontend
@@ -138,18 +163,27 @@ npm run format:check
 
 ### Environment Variables
 
-Create `.env.local` files in the respective app directories if needed:
-
-**Frontend** (`apps/frontend/.env.local`):
+#### Frontend (`apps/frontend/.env.local`)
 
 ```env
+# API Base URL - Backend service URL
 NEXT_PUBLIC_API_URL=http://localhost:3001
+
+# For production:
+# NEXT_PUBLIC_API_URL=https://your-backend-domain.com
 ```
 
-**Backend** (`apps/backend/.env`):
+#### Backend (`apps/backend/.env`)
 
 ```env
+# Server Port
 PORT=3001
+
+# CORS Origins (comma-separated for multiple origins)
+CORS_ORIGINS=http://localhost:3000
+
+# For production:
+# CORS_ORIGINS=https://alpha5labs.com,https://www.alpha5labs.com,https://*.vercel.app
 ```
 
 ## 🚀 Deployment
@@ -159,6 +193,17 @@ PORT=3001
 ```bash
 npm run build
 ```
+
+### Environment Variables for Production
+
+#### Frontend (Vercel/Netlify)
+
+- `NEXT_PUBLIC_API_URL` = `https://your-backend-domain.com`
+
+#### Backend (Heroku/Railway/Render)
+
+- `PORT` = `3001` (or assigned by platform)
+- `CORS_ORIGINS` = `https://alpha5labs.com,https://www.alpha5labs.com`
 
 ### Backend Deployment
 
@@ -177,6 +222,22 @@ The frontend can be deployed to Vercel, Netlify, or any static hosting platform:
 ```bash
 cd apps/frontend
 npm run build
+```
+
+## 🌐 Vercel Deployment
+
+### Quick Deploy
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy frontend only
+cd apps/frontend
+vercel --prod
+
+# Set environment variable in Vercel dashboard:
+# NEXT_PUBLIC_API_URL = https://your-backend-url
 ```
 
 ## 📞 Support

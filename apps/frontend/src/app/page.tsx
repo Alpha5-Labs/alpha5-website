@@ -17,7 +17,10 @@ export default function Home() {
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/home-message');
+        // Use environment variable for API URL, fallback to localhost for development
+        const apiUrl =
+          process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+        const response = await fetch(`${apiUrl}/home-message`);
         const data = await response.json();
         setHomeData(data);
       } catch (error) {
