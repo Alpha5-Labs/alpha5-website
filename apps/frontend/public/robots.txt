@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://alpha5labs.com/sitemap.xml
+
+# Block access to admin or private areas (add as needed)
+# Disallow: /admin/
+# Disallow: /private/ 
