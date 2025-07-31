@@ -26,9 +26,9 @@ export default function Home() {
       } catch (error) {
         console.error('Failed to fetch home data:', error);
         setHomeData({
-          message: 'Loading content...',
-          company: 'Loading...',
-          tagline: 'Loading tagline...',
+          message: 'Something Amazing is Coming Soon...',
+          company: 'Alpha5 Labs',
+          tagline: '🚀 Turning bold ideas into everyday solutions.',
           year: new Date().getFullYear(),
         });
       } finally {
